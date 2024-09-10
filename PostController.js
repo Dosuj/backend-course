@@ -33,7 +33,7 @@ class PostController {
             const updatedPost = await PostService.update(req.body);
             return res.json(updatedPost)
         } catch (e) {
-            res.status(500).json(e)
+            res.status(500).json(e.message)
         }
     }
     async delete(req, res) {
