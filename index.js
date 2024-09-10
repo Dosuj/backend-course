@@ -1,18 +1,17 @@
 import express from 'express';
 import mongoose from "mongoose";
 import router from "./router.js";
+import 'dotenv/config'
 
-const PORT = process.env.PORT || 5000;
-const DB_Password = process.env.DB_PASSWORD || 'oDCZ61CX30tmvkTv';
-const DB_URL = `mongodb://sadboykas:${DB_Password}@cluster0-shard-00-00.11vyn.mongodb.net:27017,cluster0-shard-00-01.11vyn.mongodb.net:27017,cluster0-shard-00-02.11vyn.mongodb.net:27017/?ssl=true&replicaSet=atlas-44585b-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0`
-
+const PORT = process.env.PORT || 5300;
+const DB_URL = process.env.DB_URL;
 
 const app = express();
 
 app.use(express.json());
 app.use('/api', router)
 
-console.log("ServerWorking")
+console.log("ServerWorking21")
 
 async function startApp() {
     try {
