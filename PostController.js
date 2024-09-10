@@ -1,10 +1,11 @@
 import Post from "./Post.js";
 import PostService from "./PostService.js";
+import fileUpload from "express-fileupload";
 
 class PostController {
     async create(req, res) {
         try {
-            const post = await PostService.create(req.body)
+            const post = await PostService.create(req.body, req.files.picture)
             res.json(post)
 
         } catch (e) {
@@ -36,7 +37,7 @@ class PostController {
             res.status(500).json(e.message)
         }
     }
-    async delete(req, res) {
+    async deleteOne(req, res) {
         try {
             const deletePost = await PostService.delete(req.params.id);
             return res.json(deletePost)
